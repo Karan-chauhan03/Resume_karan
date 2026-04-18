@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karan Chauhan Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+    :root {
+        --primary-blue: #2c5282;
+        --text-dark: #333;
+        --line-gray: #ccc;
+    }
+
+    /* Tightened base sizing for single-page fit */
+    body {
+        font-family: 'Crimson Pro', serif;
+        line-height: 1.25; /* Reduced from 1.4 */
+        color: var(--text-dark);
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 20px; /* Reduced padding */
+    }
+
+    .resume-container {
+        max-width: 850px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 25px 45px; /* Reduced vertical padding */
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        min-height: 29.7cm; /* Standard A4 height hint */
+    }
+
+    header {
+        text-align: center;
+        margin-bottom: 8px; /* Reduced margin */
+    }
+
+    h1 {
+        font-size: 28px; /* Slightly smaller */
+        text-transform: uppercase;
+        margin: 0;
+        letter-spacing: 2px;
+        font-weight: 400;
+    }
+
+    .job-title {
+        color: var(--primary-blue);
+        text-transform: uppercase;
+        font-size: 16px; /* Slightly smaller */
+        letter-spacing: 1.5px;
+        margin-top: 2px;
+        font-family: 'Lato', sans-serif;
+    }
+
+    .contact-info {
+        text-align: center;
+        font-size: 13px; /* Slightly smaller */
+        margin: 8px 0;
+        border-top: 2px double #000;
+        border-bottom: 1px solid #000;
+        padding: 4px 0;
+        font-family: 'Lato', sans-serif;
+    }
+
+    .section-header {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin: 10px 0 5px; /* Reduced margins */
+    }
+
+    .section-header::before, .section-header::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid var(--primary-blue);
+    }
+
+    .section-header span {
+        padding: 0 15px;
+        text-transform: uppercase;
+        color: var(--primary-blue);
+        font-weight: 600;
+        letter-spacing: 1px;
+        font-size: 14px;
+    }
+
+    .summary, .experience, .soft-skills, .projects, .certifications {
+        font-size: 13.5px; /* Adjusted for readability and space */
+        text-align: justify;
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px 40px; /* Tighter gap */
+        font-size: 13px;
+    }
+
+    ul {
+        padding-left: 18px;
+        margin: 2px 0; /* Minimal margin */
+    }
+
+    li {
+        margin-bottom: 1px; /* Minimal margin */
+    }
+
+    .exp-meta {
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .sub-text {
+        font-style: italic;
+        color: #555;
+        margin-bottom: 3px;
+        font-size: 13px;
+    }
+
+    .sub-text a, .cert-link {
+        color: inherit;
+        text-decoration: underline;
+        text-decoration-color: var(--primary-blue);
+    }
+
+    .details-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        font-family: 'Lato', sans-serif;
+    }
+
+    .lang-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2px;
+    }
+
+    .progress-bar {
+        height: 5px; /* Slimmer bars */
+        background: #eee;
+        width: 110px;
+        display: flex;
+        gap: 2px;
+    }
+
+    .bar-segment {
+        flex: 1;
+        background: var(--primary-blue);
+    }
+
+    .bar-segment.empty {
+        background: #cbd5e0;
+    }
+
+    /* Print settings to force single page */
+    @media print {
+        @page {
+            size: A3;
+            margin: 0; /* Rely on container padding */
+        }
+        body { 
+            background: none; 
+            padding: 0; 
+        }
+        .resume-container { 
+            box-shadow: none; 
+            width: 100%; 
+            padding: 15mm; /* Standard print margin */
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="resume-container">
+    <header>
+        <h1>Karan Chauhan</h1>
+        <div class="job-title">Full Stack Engineer</div>
+        <div class="contact-info">
+    Ghaziabad, India 201010 • 
+    +91 807654926 
+  professionalkaran300@gmail.com <br>
+    <a href="https://linkedin.com/in/karan-chauhan-b62005377" target="_blank">linkedin.com/in/karan-chauhan-b62005377</a> • 
+    <a href="https://github.com/karan-chauhan03" target="_blank">github.com/karan-chauhan03</a>
+</div>
+    </header>
+
+    <div class="section-header"><span>Professional Summary</span></div>
+    <div class="summary">
+        <strong>Full Stack Engineer</strong> with backend focus, experienced in <strong>Golang, REST</strong> and gRPC API development, MySQL, and cloud-native deployment using Docker, Kubernetes, and <strong>Google Cloud Platform</strong>. Strong understanding of product requirements and cross-functional collaboration.
+    </div>
+
+    <div class="section-header"><span>Experience</span></div>
+    <div class="experience">
+        <div class="exp-meta">
+            <span>Project Manager Intern</span>
+            <span>08/2025 — 12/2025</span>
+        </div>
+        <div class="sub-text"><a href="http://inovatech.in/" target="_blank">Inovatech</a> — Delhi, India (Remote)</div>
+        <ul>
+            <li>Led development and deployment of full-stack applications for a tech startup environment.</li>
+            <li>Managed a team of developers and coordinated projects to ensure timely software delivery.</li>
+            <li>Streamlined deployment workflows and automated processes to enhance productivity.</li>
+        </ul>
+    </div>
+
+    <div class="section-header"><span>Projects</span></div>
+    <div class="projects">
+        <div class="project-item">
+            <div class="exp-meta">
+                <span>Nourise</span>
+                <span><a href="https://nourise.vercel.app/" style="color: var(--primary-blue); text-decoration: none;">nourise.vercel.app</a></span>
+            </div>
+            <div class="sub-text">Full Stack Web Application</div>
+            <ul>
+                <li>Developed a responsive web application focused on user nourishment and wellness.</li>
+            </ul>
+        </div>
+        <div class="project-item">
+            <div class="exp-meta">
+                <span>SleepHeaven</span>
+                <span><a href="https://karan-chauhan03.github.io/sleepheaven/" style="color: var(--primary-blue); text-decoration: none;">karan-chauhan03.github.io/sleepheaven</a></span>
+            </div>
+            <div class="sub-text">Frontend Design Project</div>
+            <ul>
+                <li>Built a high-fidelity landing page showcasing clean UI/UX and responsive design principles.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section-header"><span>Certifications</span></div>
+    <div class="certifications">
+        <div class="exp-meta">
+            <span>Advance Excel with Data Visualization (Power BI & Tableau)</span>
+            <span>02/2025</span>
+        </div>
+        <div class="sub-text">E & ICT Academy, IIT Kanpur (MeitY Initiative) </div>
+        <ul>
+           <li>View Verified <a href="https://drive.google.com/file/d/1oQsFJcTH-bxyetacPlqnZdpzPjaYKi9k/view?usp=sharing" target="_blank" class="cert-link">Certificate</a></li>
+            <li>Completed specialized training in advanced data analysis and visualization. </li>
+        </ul>
+    </div>
+
+    <div class="section-header"><span>Skills</span></div>
+    <div class="skills-grid">
+        <ul>
+            <li>Backend REST APIs, Gin, gRPC</li>
+            <li>JavaScript, HTML, CSS</li>
+            <li>Tools: GitHub, Git</li>
+        </ul>
+        <ul>
+            <li>Database: PgSQL</li>
+            <li>Cloud: GCP, Docker, Kubernetes</li>
+            <li>Languages: Golang, Python, C++</li>
+        </ul>
+    </div>
+
+    <div class="section-header"><span>Education</span></div>
+    <div class="experience">
+        <div class="exp-meta">
+            <span>Bachelor of Computer Applications</span>
+            <span>07/2027</span>
+        </div>
+        <div class="sub-text">I.T.S Mohan Nagar — (Ghaziabad) UP, India </div>
+        
+        <div class="exp-meta">
+            <span>Senior Secondary (12th Grade)</span>
+            <span>84%</span>
+        </div>
+        <div class="sub-text">Indraprastha Public School — Ghaziabad, India</div>
+    </div>
+
+ <div class="section-header"><span>languages</span></div>
+    <div class="details-grid">
+        <div class="lang-col">
+            <div class="lang-item">
+                <span>English</span>
+                <div class="progress-bar">
+                    <div class="bar-segment"></div><div class="bar-segment"></div><div class="bar-segment"></div><div class="bar-segment"></div><div class="bar-segment"></div><div class="bar-segment"></div><div class="bar-segment"></div><div class="bar-segment"></div>
+                </div>
+            </div>
+            <div class="sub-text" style="font-size: 12px;">Advanced (C1)</div> 
+        </div> 
+        <div class="lang-col">
+            <div class="lang-item">
+                <span>Hindi</span>
+                <div class="progress-bar">
+                    <div class="bar-segment"></div><div class="bar-segment"></div><div class="bar-segment"></div><div class="bar-segment"></div><div class="bar-segment"></div><div class="bar-segment"></div><div class="bar-segment"></div><div class="bar-segment"></div>
+                </div>
+            </div>
+            <div class="sub-text" style="font-size: 12px;">Advanced (C1)</div>
+            <div class="lang-item">
+                <span>Japanese</span>
+                <div class="progress-bar">
+                    <div class="bar-segment"></div><div class="bar-segment"></div><div class="bar-segment"></div><div class="bar-segment"></div><div class="bar-segment"></div><div class="bar-segment empty"></div><div class="bar-segment empty"></div><div class="bar-segment empty"></div>
+                </div>
+            </div>
+            <div class="sub-text" style="font-size: 12px;">Upper intermediate (B2)</div>
+        </div>
+    </div>
+
+    <div class="section-header"><span>Soft Skills & Specialities</span></div>
+    <div class="soft-skills">
+        <strong>Empathetic Leadership:</strong> Supportive team player with a focus on cross-functional harmony. <br>
+        <strong>Analytical Problem Solving:</strong> Expert at breaking down complex technical bottlenecks into actionable tasks. <br>
+        <strong>Agile Mindset:</strong> Highly adaptable to fast-paced startup environments and evolving product requirements. <br>
+        <strong>Strategic Communication:</strong> Proficient in bridging the gap between technical teams and stakeholders. <br>
+        <strong>Continuous Learner:</strong> Rapidly masters new frameworks, languages, and DevOps methodologies.
+    </div>
+</div>
+
+</body>
+</html>
