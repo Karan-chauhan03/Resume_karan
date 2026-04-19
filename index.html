@@ -12,42 +12,48 @@
         --line-gray: #ccc;
     }
 
-    /* Tightened base sizing for single-page fit */
     body {
         font-family: 'Crimson Pro', serif;
-        line-height: 1.25; /* Reduced from 1.4 */
+        line-height: 1.25;
         color: var(--text-dark);
         background-color: #f0f0f0;
         margin: 0;
-        padding: 20px; /* Reduced padding */
+        padding: 10px; /* Reduced for mobile */
     }
 
     .resume-container {
         max-width: 850px;
         margin: 0 auto;
         background: #fff;
-        padding: 25px 45px; /* Reduced vertical padding */
+        padding: 20px; /* Responsive padding */
         box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        min-height: 29.7cm; /* Standard A4 height hint */
+    }
+
+    /* Desktop adjustments */
+    @media (min-width: 768px) {
+        body { padding: 20px; }
+        .resume-container { padding: 25px 45px; min-height: 29.7cm; }
     }
 
     header {
         text-align: center;
-        margin-bottom: 8px; /* Reduced margin */
+        margin-bottom: 8px;
     }
 
     h1 {
-        font-size: 28px; /* Slightly smaller */
+        font-size: 24px; /* Scaled for mobile */
         text-transform: uppercase;
         margin: 0;
         letter-spacing: 2px;
         font-weight: 400;
     }
 
+    @media (min-width: 768px) { h1 { font-size: 28px; } }
+
     .job-title {
         color: var(--primary-blue);
         text-transform: uppercase;
-        font-size: 16px; /* Slightly smaller */
+        font-size: 14px;
         letter-spacing: 1.5px;
         margin-top: 2px;
         font-family: 'Lato', sans-serif;
@@ -55,19 +61,20 @@
 
     .contact-info {
         text-align: center;
-        font-size: 13px; /* Slightly smaller */
+        font-size: 12px;
         margin: 8px 0;
         border-top: 2px double #000;
         border-bottom: 1px solid #000;
-        padding: 4px 0;
+        padding: 6px 0;
         font-family: 'Lato', sans-serif;
+        word-wrap: break-word; /* Prevents long emails/links from breaking layout */
     }
 
     .section-header {
         display: flex;
         align-items: center;
         text-align: center;
-        margin: 10px 0 5px; /* Reduced margins */
+        margin: 10px 0 5px;
     }
 
     .section-header::before, .section-header::after {
@@ -77,40 +84,49 @@
     }
 
     .section-header span {
-        padding: 0 15px;
+        padding: 0 10px;
         text-transform: uppercase;
         color: var(--primary-blue);
         font-weight: 600;
         letter-spacing: 1px;
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .summary, .experience, .soft-skills, .projects, .certifications {
-        font-size: 13.5px; /* Adjusted for readability and space */
+        font-size: 13.5px;
         text-align: justify;
     }
 
-    .skills-grid {
+    /* Grid fixes for Mobile */
+    .skills-grid, .details-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2px 40px; /* Tighter gap */
+        grid-template-columns: 1fr; /* Stack on mobile */
+        gap: 10px;
         font-size: 13px;
+    }
+
+    @media (min-width: 600px) {
+        .skills-grid { grid-template-columns: 1fr 1fr; gap: 2px 40px; }
+        .details-grid { grid-template-columns: 1fr 1fr; }
     }
 
     ul {
         padding-left: 18px;
-        margin: 2px 0; /* Minimal margin */
+        margin: 2px 0;
     }
 
-    li {
-        margin-bottom: 1px; /* Minimal margin */
-    }
+    li { margin-bottom: 1px; }
 
     .exp-meta {
         display: flex;
-        justify-content: space-between;
+        flex-direction: column; /* Stack dates on mobile */
         font-weight: bold;
         font-size: 14px;
+        margin-top: 5px;
+    }
+
+    @media (min-width: 480px) {
+        .exp-meta { flex-direction: row; justify-content: space-between; }
     }
 
     .sub-text {
@@ -118,19 +134,7 @@
         color: #555;
         margin-bottom: 3px;
         font-size: 13px;
-    }
-
-    .sub-text a, .cert-link {
-        color: inherit;
-        text-decoration: underline;
-        text-decoration-color: var(--primary-blue);
-    }
-
-    .details-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-        font-family: 'Lato', sans-serif;
+        word-wrap: break-word;
     }
 
     .lang-item {
@@ -141,37 +145,22 @@
     }
 
     .progress-bar {
-        height: 5px; /* Slimmer bars */
+        height: 5px;
         background: #eee;
-        width: 110px;
+        width: 80px; /* Smaller for mobile */
         display: flex;
         gap: 2px;
     }
 
-    .bar-segment {
-        flex: 1;
-        background: var(--primary-blue);
-    }
+    @media (min-width: 400px) { .progress-bar { width: 110px; } }
 
-    .bar-segment.empty {
-        background: #cbd5e0;
-    }
+    .bar-segment { flex: 1; background: var(--primary-blue); }
+    .bar-segment.empty { background: #cbd5e0; }
 
-    /* Print settings to force single page */
     @media print {
-        @page {
-            size: A3;
-            margin: 0; /* Rely on container padding */
-        }
-        body { 
-            background: none; 
-            padding: 0; 
-        }
-        .resume-container { 
-            box-shadow: none; 
-            width: 100%; 
-            padding: 15mm; /* Standard print margin */
-        }
+        @page { size: A4; margin: 0; }
+        body { background: none; padding: 0; }
+        .resume-container { box-shadow: none; width: 100%; padding: 10mm; }
     }
 </style>
 </head>
@@ -182,12 +171,11 @@
         <h1>Karan Chauhan</h1>
         <div class="job-title">Full Stack Engineer</div>
         <div class="contact-info">
-    Ghaziabad, India 201010 • 
-    +91 807654926 
-  professionalkaran300@gmail.com <br>
-    <a href="https://linkedin.com/in/karan-chauhan-b62005377" target="_blank">linkedin.com/in/karan-chauhan-b62005377</a> • 
-    <a href="https://github.com/karan-chauhan03" target="_blank">github.com/karan-chauhan03</a>
-</div>
+            Ghaziabad, India 201010 • +91 807654926 <br>
+            professionalkaran300@gmail.com <br>
+            <a href="https://linkedin.com/in/karan-chauhan-b62005377" target="_blank">linkedin.com/in/karan-chauhan-b62005377</a> <br>
+            <a href="https://github.com/karan-chauhan03" target="_blank">github.com/karan-chauhan03</a>
+        </div>
     </header>
 
     <div class="section-header"><span>Professional Summary</span></div>
@@ -236,12 +224,12 @@
     <div class="section-header"><span>Certifications</span></div>
     <div class="certifications">
         <div class="exp-meta">
-            <span>Advance Excel with Data Visualization (Power BI & Tableau)</span>
+            <span>Advance Excel with Data Visualization</span>
             <span>02/2025</span>
         </div>
         <div class="sub-text">E & ICT Academy, IIT Kanpur (MeitY Initiative) </div>
         <ul>
-           <li>View Verified <a href="https://drive.google.com/file/d/1oQsFJcTH-bxyetacPlqnZdpzPjaYKi9k/view?usp=sharing" target="_blank" class="cert-link">Certificate</a></li>
+           <li>View Verified <a href="https://drive.google.com/file/d/1oQsFJcTH-bxyetacPlqnZdpzPjaYKi9k/view?usp=sharing" target="_blank">Certificate</a></li>
             <li>Completed specialized training in advanced data analysis and visualization. </li>
         </ul>
     </div>
@@ -275,7 +263,7 @@
         <div class="sub-text">Indraprastha Public School — Ghaziabad, India</div>
     </div>
 
- <div class="section-header"><span>languages</span></div>
+    <div class="section-header"><span>languages</span></div>
     <div class="details-grid">
         <div class="lang-col">
             <div class="lang-item">
@@ -306,11 +294,11 @@
 
     <div class="section-header"><span>Soft Skills & Specialities</span></div>
     <div class="soft-skills">
-        <strong>Empathetic Leadership:</strong> Supportive team player with a focus on cross-functional harmony. <br>
-        <strong>Analytical Problem Solving:</strong> Expert at breaking down complex technical bottlenecks into actionable tasks. <br>
-        <strong>Agile Mindset:</strong> Highly adaptable to fast-paced startup environments and evolving product requirements. <br>
-        <strong>Strategic Communication:</strong> Proficient in bridging the gap between technical teams and stakeholders. <br>
-        <strong>Continuous Learner:</strong> Rapidly masters new frameworks, languages, and DevOps methodologies.
+        <strong>Empathetic Leadership:</strong> Supportive team player. <br>
+        <strong>Analytical Problem Solving:</strong> Expert at technical bottlenecks. <br>
+        <strong>Agile Mindset:</strong> Adaptable to startups. <br>
+        <strong>Strategic Communication:</strong> Bridges tech and business. <br>
+        <strong>Continuous Learner:</strong> Masters new frameworks.
     </div>
 </div>
 
